@@ -2,7 +2,7 @@ from lxml.html import tostring
 
 def text_content(xml):
   "Contents of an lxml node"
-  return ''.join(map(tostring,xml.xpath('*'))) 
+  return ''.join(map(tostring,xml.xpath('*')))
 
 def htmltable2matrix(tablehtml):
   """Takes an lxml tree whose current node is the table of interest"""
