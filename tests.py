@@ -23,9 +23,29 @@ class TestLXML(unittest.TestCase):
   def abstract_test_col(self,rownum,colnum,expected):
     self.assertEqual(self.table_matrix[rownum][colnum],expected)
 
-  def row0(self):
-    expected=[]
-    self.assertEqual(self.table_matrix[0],expected)
+  def test_row0_col0(self):
+    self.abstract_test_col(0,0,row0.days)
+
+  def test_row0_col1(self):
+    self.abstract_test_col(0,1,row0.fromcity)
+
+  def test_row0_col2(self):
+    self.abstract_test_col(0,2,row0.fromcity)
+
+  def test_row0_col3(self):
+    self.abstract_test_col(0,3,row0.fromcity)
+
+  def test_row0_col4(self):
+    self.abstract_test_col(0,4,row0.fromcity)
+
+  def test_row0_col5(self):
+    self.abstract_test_col(0,5,row0.arrow)
+
+  def test_row0_col6(self):
+    self.abstract_test_col(0,6,row0.tocity)
+
+  def test_row0_col7(self):
+    self.abstract_test_col(0,7,row0.route)
 
   def test_row1_col0(self):
     self.abstract_test_col(1,0,row1.days)
