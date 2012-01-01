@@ -1,10 +1,10 @@
 from lxml.html import tostring
 
-def text_content(xml):
+def content_nodes(xml):
   "Contents of an lxml node"
   return ''.join(map(tostring,xml.xpath('*')))
 
-def htmltable2matrix(tablehtml):
+def htmltable2matrix(tablehtml,cell_xpath=None):
   """Takes an lxml tree whose current node is the table of interest"""
   trs=tablehtml.xpath('tr')
   tablematrix=[]
@@ -19,7 +19,11 @@ def htmltable2matrix(tablehtml):
         repeats=1
 
       for r in range(repeats):
-        tablematrix_row.append(text_content(td))
+        if cell_xpath==None:
+          cell=content_nodes(td)
+        else:
+          cell=''.join(td.xpath(cell_xpath))
+        tablematrix_row.append(cell)
 
     tablematrix.append(tablematrix_row)
     del(tds)
